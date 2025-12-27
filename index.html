@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TA Portfolio | Baek Seung-a</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;700&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --neon-lime: #deff9a;
+            --soft-green: #daffde;
+            --bg-dark: #0a0a0a;
+            --card-bg: #111111;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #f5f5f5;
+            font-family: 'Urbanist', 'Noto Sans KR', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .text-neon { color: var(--neon-lime); }
+        .bg-neon { background-color: var(--neon-lime); }
+        .border-neon { border-color: rgba(222, 255, 154, 0.2); }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.2, 0.6, 0.2, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        nav {
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(222, 255, 154, 0.05);
+        }
+
+        .section-header {
+            border-left: 4px solid var(--neon-lime);
+            padding-left: 20px;
+            margin-bottom: 40px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(222, 255, 154, 0.05);
+            transition: all 0.4s ease;
+        }
+
+        .project-card:hover {
+            border-color: rgba(222, 255, 154, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .bullet-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            color: rgba(218, 255, 222, 0.85);
+        }
+
+        .bullet-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--neon-lime);
+        }
+
+        .video-link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: rgba(222, 255, 154, 0.1);
+            border: 1px solid var(--neon-lime);
+            color: var(--neon-lime);
+            border-radius: 99px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .video-link-btn:hover {
+            background: var(--neon-lime);
+            color: black;
+            box-shadow: 0 0 15px var(--neon-lime);
+        }
+
+        .image-placeholder {
+            background: #1a1a1a;
+            border: 1px dashed rgba(222, 255, 154, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            color: rgba(222, 255, 154, 0.4);
+            min-height: 200px;
+            text-align: center;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        .step-indicator {
+            background: rgba(222, 255, 154, 0.05);
+            border-radius: 12px;
+            padding: 12px 20px;
+            margin-bottom: 10px;
+            border: 1px solid rgba(222, 255, 154, 0.1);
+        }
+
+        .category-badge {
+            font-size: 1.2rem;
+            font-weight: 800;
+            letter-spacing: 0.3em;
+            color: var(--neon-lime);
+            margin-bottom: 60px;
+            text-align: center;
+            display: block;
+            opacity: 0.8;
+            text-transform: uppercase;
+        }
+
+        .stack-tag {
+            background: rgba(222, 255, 154, 0.05);
+            border: 1px solid rgba(222, 255, 154, 0.1);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: var(--soft-green);
+        }
+
+        /* 이미지 전용 스타일 */
+        img.portfolio-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 px-8 py-5 flex justify-between items-center">
+        <div class="text-2xl font-bold tracking-tighter">Portfolio <span class="text-neon text-3xl"></span></div>
+        <div class="hidden lg:flex space-x-8 text-[10px] font-bold tracking-widest">
+            <a href="#about" class="hover:text-neon transition">PROFILE</a>
+            <a href="#skills" class="hover:text-neon transition">ABILITY</a>
+            <a href="#tool-scripting" class="hover:text-neon transition">TOOLS</a>
+            <a href="#procedural" class="hover:text-neon transition">PCG</a>
+            <a href="#rendering" class="hover:text-neon transition">RENDERING</a>
+            <a href="#ai-workflow" class="hover:text-neon transition">AI</a>
+            <a href="#contact" class="hover:text-neon transition text-neon border border-neon px-4 py-1 rounded-full">CONTACT</a>
+        </div>
+        <div class="lg:hidden text-neon"><i class="fa-solid fa-bars text-xl"></i></div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-20">
+        <div class="reveal active">
+            <p class="text-neon font-bold tracking-[0.4em] mb-4 text-sm opacity-80 uppercase">Baik Seung A</p>
+            <h1 class="text-6xl md:text-9xl font-bold leading-none tracking-tighter mb-8">
+                TA <span class="text-neon">Portfolio</span>
+            </h1>
+            <p class="text-lg md:text-2xl text-soft-green opacity-70 max-w-3xl mx-auto font-light leading-relaxed">
+        
+            </p>
+        </div>
+    </header>
+
+    <!-- Profile & Technical Stack -->
+    <section id="about" class="py-32 px-6 max-w-7xl mx-auto">
+        <div class="grid lg:grid-cols-12 gap-16 items-start border-b border-white/5 pb-24">
+            <!-- Left: Profile Info -->
+            <div class="lg:col-span-5 reveal">
+                <div class="section-header">
+                    <h2 class="text-5xl font-bold mb-2">Profile</h2>
+                </div>
+                <div class="space-y-10">
+                    <div>
+                        <h4 class="text-neon font-bold text-xs mb-3 tracking-widest uppercase">Career</h4>
+                        <div class="space-y-2">
+                            <p class="text-white font-bold text-lg">NCSOFT</p>
+                            <p class="text-soft-green text-sm opacity-80">Technical Art실 (2022.07 - 2024.12)</p>
+                            <p class="text-soft-green text-xs opacity-50">비주얼기획실 비주얼분석팀 (2022.01 - 2022.06)</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-neon font-bold text-xs mb-3 tracking-widest uppercase">Education</h4>
+                        <p class="text-white font-bold text-lg">성균관대학교</p>
+                        <p class="text-soft-green text-sm opacity-80">컴퓨터교육과 / 게임인터랙티브미디어 전공 (2017 - 2022)</p>
+                    </div>
+                    <div>
+                        <h4 class="text-neon font-bold text-xs mb-3 tracking-widest uppercase">Participated Projects</h4>
+                        <div class="flex flex-wrap gap-2 mt-2">
+                            <span class="stack-tag">Throne and Liberty</span>
+                            <span class="stack-tag">Project M</span>
+                            <span class="stack-tag">Battle Crush</span>
+                            <span class="stack-tag">B&S Neo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Technical Stack -->
+            <div class="lg:col-span-7 reveal" style="transition-delay: 0.2s;">
+                <div class="section-header">
+                    <h2 class="text-5xl font-bold mb-2">Technical Stack</h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-neon font-bold text-xs mb-4 uppercase tracking-widest">Programming & Engine</h4>
+                        <div class="space-y-6">
+                            <div>
+                                <p class="text-[10px] opacity-40 mb-2 uppercase">Languages</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="stack-tag">Python</span>
+                                    <span class="stack-tag">C++</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="text-[10px] opacity-40 mb-2 uppercase">Engines</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="stack-tag">Unreal Engine 4/5</span>
+                                    <span class="stack-tag">Unity</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-neon font-bold text-xs mb-4 uppercase tracking-widest">Tools & Software</h4>
+                        <div class="space-y-6">
+                            <div>
+                                <p class="text-[10px] opacity-40 mb-2 uppercase">DCC & Others</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="stack-tag">Photoshop</span>
+                                    <span class="stack-tag">3DS MAX</span>
+                                    <span class="stack-tag">Git / Perforce</span>
+                                    <span class="stack-tag">Jira / Wiki</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Competency Section -->
+    <section id="skills" class="py-32 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-20 reveal">
+            <span class="category-badge">Core Ability</span>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="project-card p-10 rounded-3xl reveal">
+                <div class="text-neon text-4xl mb-6"><i class="fa-solid fa-code"></i></div>
+                <h3 class="text-xl font-bold mb-4">Tool Scripting</h3>
+                <p class="text-sm text-soft-green opacity-60 leading-relaxed">Python, BP를 활용한 자동화 및 아트 워크플로우 효율화</p>
+            </div>
+            <div class="project-card p-10 rounded-3xl reveal" style="transition-delay: 0.1s;">
+                <div class="text-neon text-4xl mb-6"><i class="fa-solid fa-microchip"></i></div>
+                <h3 class="text-xl font-bold mb-4">Procedural Gen</h3>
+                <p class="text-sm text-soft-green opacity-60 leading-relaxed"> 절차적 콘텐츠 생성 R&D 및 대규모 월드 제작 지원</p>
+            </div>
+            <div class="project-card p-10 rounded-3xl reveal" style="transition-delay: 0.2s;">
+                <div class="text-neon text-4xl mb-6"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                <h3 class="text-xl font-bold mb-4">Rendering</h3>
+                <p class="text-sm text-soft-green opacity-60 leading-relaxed">머티리얼 제작 및 최적화, 비주얼 퀄리티를 저해하는 렌더링 이슈 해결</p>
+            </div>
+            <div class="project-card p-10 rounded-3xl reveal" style="transition-delay: 0.3s;">
+                <div class="text-neon text-4xl mb-6"><i class="fa-solid fa-brain"></i></div>
+                <h3 class="text-xl font-bold mb-4">AI Workflow</h3>
+                <p class="text-sm text-soft-green opacity-60 leading-relaxed"> 생성형 AI를 활용한 아트 워크플로우 도입 및 개인 연구</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category 1: Tool Scripting -->
+    <section id="tool-scripting" class="py-32 px-6 bg-zinc-950">
+        <div class="max-w-7xl mx-auto">
+            <span class="category-badge">TOOL SCRIPTING</span>
+            
+            <div class="space-y-40">
+                <!-- TL UE5 Converting Project -->
+                <div class="grid lg:grid-cols-2 gap-16 items-center reveal">
+                    <div>
+                        <h3 class="text-4xl font-bold mb-6">Throne and Liberty UE5 Converting Project</h3>
+                        <p class="text-soft-green mb-8 leading-relaxed">
+                            Unreal4로 제작된 TL 프로젝트를 Unreal5로 포팅하는 업무를 진행했습니다. 커스텀 클래스가 순정 엔진에서 확인되지 않는 이슈를 분석하여 
+                            UE5 순정 버전으로 생성하는 컨버팅 툴과 레벨 에셋 포팅 툴을 제작하여 컨버팅 효율을 높였습니다.
+                        </p>
+                        <ul class="bullet-list mt-8">
+                            <li>레벨: World Partition 변환 시 발생하는 이슈 파악</li>
+                            <li>캐릭터: 헤어/스킨 등 캐릭터 머티리얼 포팅 및 비주얼 차이 분석/해결</li>
+                            <li>FX: Cascade to Niagara 변환 시 발생하는 이슈 해결</li>
+                        </ul>
+                        <a href="https://drive.google.com/file/d/1iSOE3cy8A8q6DZBzaTwjSFdUoXPI1roi/view?usp=sharing" target="_blank" class="video-link-btn">
+                            <i class="fa-solid fa-play"></i> TL UE5 컨버팅 툴 영상
+                        </a>
+                    </div>
+                    <div class="image-placeholder p-0 border-none overflow-hidden">
+                        <img src="https://drive.google.com/thumbnail?id=1cl2t6qythUOwAaXyrXQ6Q5qHM45FKeFJ&sz=w1000" alt="TL UE5 Converting Project" class="portfolio-img">
+                    </div>
+                </div>
+
+                <!-- Light Distribution Tool -->
+                <div class="grid lg:grid-cols-2 gap-16 items-center reveal">
+                    <div class="order-2 lg:order-1 image-placeholder p-0 border-none overflow-hidden text-center">
+                        <img src="https://drive.google.com/thumbnail?id=1Sbg6fuSr7-OqbiARD9HXmp9ta2tfrr0K&sz=w1000" alt="Light Distribution Tool" class="portfolio-img">
+                    </div>
+                    <div class="order-1 lg:order-2">
+                        <h3 class="text-4xl font-bold mb-6">Light Distribution Tool</h3>
+                        <p class="text-soft-green mb-8">
+                            레벨 내 Light Component 정보를 분석하여 라이트 복잡도 체크를 돕는 시각화 툴입니다. 
+                            Python 기반 데이터 시각화 라이브러리인 <strong>Plotly</strong>를 사용하여 그래프를 도출했으며, 
+                            아트팀은 이를 참고하여 정밀한 라이트 최적화를 진행할 수 있었습니다.
+                        </p>
+                        <div class="space-y-4 text-sm opacity-80">
+                            <div class="flex gap-4 items-start">
+                                <span class="text-neon font-bold">1)</span>
+                                <p>현재 라이트 정보를 unreal python api 를 활용하여 csv 형태로 추출</p>
+                            </div>
+                            <div class="flex gap-4 items-start">
+                                <span class="text-neon font-bold">2)</span>
+                                <p>Plotly 를 사용하여 해당 라이트 정보를 시각화</p>
+                            </div>
+                        </div>
+                        <a href="https://drive.google.com/file/d/14pW3wTbGaUXHQYl4nGOfjSf1kB4WDG4w/view?usp=sharing" target="_blank" class="video-link-btn">
+                            <i class="fa-solid fa-play"></i> 라이트 시각화 툴 영상
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Material Editing Tools -->
+                <div class="grid lg:grid-cols-2 gap-10 reveal">
+                    <div class="project-card p-10 rounded-[40px]">
+                        <h3 class="text-2xl font-bold mb-6">Material Parameter Editing Tool</h3>
+                        <p class="text-sm opacity-70 mb-8 leading-relaxed">
+                            Unreal의 Bulk Editing으로 대량 편집이 불가능한 파라미터(Shading model 등)를 편집하기 위한 툴입니다. 
+                            PyQT를 활용하여 정보를 동적으로 가져와 머티리얼 외 다른 클래스의 프로퍼티도 수정 가능합니다.
+                        </p>
+                        <div class="image-placeholder h-48 mb-6 p-0 border-none overflow-hidden">
+                            <img src="https://drive.google.com/thumbnail?id=1sNpMO8DBmjOmPvCKDE68ysHMAVpqXZlj&sz=w1000" alt="Parameter Editing Tool" class="portfolio-img">
+                        </div>
+                        <a href="https://drive.google.com/file/d/1d1MHw3c8BBzkdNgYf6tpK_wHNzl1YiCr/view?usp=sharing"target="_blank" class="video-link-btn"><i class="fa-solid fa-play"></i> 수정 툴 영상</a>
+                    </div>
+                    <div class="project-card p-10 rounded-[40px]">
+                        <h3 class="text-2xl font-bold mb-6">Material Property Editing Tool</h3>
+                        <p class="text-sm opacity-70 mb-8 leading-relaxed">
+                            복수의 머티리얼 인스턴스(MI) 프로퍼티를 대량 수정하는 툴입니다. 중복되는 이름의 프로퍼티를 자동 감지하며 
+                            Color Picker와 Object Selector를 지원하여 아티스트의 작업 편의성을 극대화했습니다.
+                        </p>
+                        <div class="image-placeholder h-48 mb-6 p-0 border-none overflow-hidden">
+                            <img src="https://drive.google.com/thumbnail?id=1h579ycaOu8NDlvuwWpjVbfTahxExB5ba&sz=w1000" alt="Property Editing Tool" class="portfolio-img">
+                        </div>
+                        <a href="https://drive.google.com/file/d/1pXOGfc2sxu4jiIqJ9-peqvrFKyO_Q2C6/view?usp=sharing" target="_blank" class="video-link-btn"><i class="fa-solid fa-play"></i> 수정 툴 영상</a>
+                    </div>
+                </div>
+
+                <!-- Statistics & Turntable -->
+                <div class="grid lg:grid-cols-2 gap-10 reveal">
+                    <div class="project-card p-10 rounded-[40px]">
+                        <h3 class="text-2xl font-bold mb-4">Material Parameter Statistics Tool</h3>
+                        <p class="text-sm opacity-70 mb-6 leading-relaxed">
+                            부모 머티리얼 기반 인스턴스들의 정보를 수집해 디폴트 값과 오차가 큰 항목을 검출하고 
+                            전체 파라미터 수정 횟수를 집계하여 최적화를 돕는 툴입니다.
+                        </p>
+                        <div class="image-placeholder h-48 mb-6 p-0 border-none overflow-hidden">
+                            <img src="https://drive.google.com/thumbnail?id=11rjmf48QOv2963NLHroeVgCDcGNS2Cm6&sz=w1000" alt="Statstics Tool" class="portfolio-img">
+                        </div>
+                        <a href="https://drive.google.com/file/d/1-1NC3smQmBTdGOpUcUqPpmD1l__yM_Zc/view?usp=sharing" target="_blank" class="video-link-btn"><i class="fa-solid fa-play"></i> 통계 툴 영상</a>
+                    </div>
+                    <div class="project-card p-10 rounded-[40px]">
+                        <h3 class="text-2xl font-bold mb-4">Character Turntable Tool</h3>
+                        <p class="text-sm opacity-70 mb-6 leading-relaxed">
+                            캐릭터 룩뎁 확인을 위한 툴로 회전, 카메라 제어, 레벨/의상 교체가 가능합니다. 
+                            Skeleton 이름을 분석하여 얼굴/몸통/전신 카메라를 자동 셋업합니다. 
+                        </p>
+                        <div class="image-placeholder h-48 mb-6 p-0 border-none overflow-hidden">
+                            <img src="https://drive.google.com/thumbnail?id=1XcTTpOIKxlKHBV1P0n-lab5H3GHklgoq&sz=w1000" alt="CharacterTool" class="portfolio-img">
+                        </div>
+                        <a href="https://drive.google.com/file/d/1I4XllycIAxYkA1IuKSwJ-8NPVAllrWJe/view?usp=sharing" target="_blank" class="video-link-btn"><i class="fa-solid fa-play"></i> 턴테이블 툴 영상</a>
+                    </div>
+                </div>
+
+                <!-- Landscape Random Gen -->
+                <div class="reveal max-w-4xl mx-auto">
+                    <div class="project-card p-12 rounded-[50px] text-center border-neon/20">
+                        <h3 class="text-3xl font-bold mb-6">Landscape Random Generator</h3>
+                        <p class="text-soft-green opacity-80 mb-8">
+                            UE5 의 플러그인인 Landscape Patch와 PCG를 응용하여 빠르게 지형을 생성하는 툴입니다. 
+                            사용자가 그리고 싶은 지형을 캔버스에 직접 그린 정보를 바탕으로 실제 랜드스케이프를 생성합니다.
+                        </p>
+                        <div class="image-placeholder max-md mx-auto p-0 border-none overflow-hidden" style="min-height: 300px;">
+                            <img src="https://drive.google.com/thumbnail?id=1bwuMcInZaRVY_4mYM1AWVe-dV_9A-dVK&sz=w1000" alt="Landscape Generator" class="portfolio-img">
+                        </div>
+                        <a href="https://drive.google.com/file/d/19pIzFLcfRGxm5cOB7aheWPuxCw2u7bEW/view?usp=sharing" target="_blank" class="video-link-btn"><i class="fa-solid fa-play"></i> 랜드스케이프 생성 툴 영상</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category 2: Procedural Generation -->
+    <section id="procedural" class="py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <span class="category-badge">PROCEDURAL GENERATION</span>
+
+            <div class="grid lg:grid-cols-2 gap-20 items-center mb-40 reveal">
+                <div>
+                    <h3 class="text-4xl font-bold mb-6 leading-tight">PCG Korean Modular House Generator</h3>
+                    <p class="text-soft-green mb-8">
+                        Scan Studio와의 협업으로 스캔한 한국형 양옥 에셋을 분석하고, UE5 PCG와 Detail Panel을 활용하여 
+                        절차적으로 집을 구성하는 로직입니다. 집 크기, 층수, 에셋 밀도 등을 유저가 직접 조정할 수 있습니다.
+                    </p>
+                    <a href="https://drive.google.com/file/d/16sdoszs1fYsK1Pyk8VXMWyZKYlUEwXho/view?usp=sharing" target="_blank" class="video-link-btn"><i class="fa-solid fa-play"></i> 절차적 양옥 생성 영상</a>
+                </div>
+                <div class="image-placeholder h-80 p-0 border-none overflow-hidden">
+                    <img src="https://drive.google.com/thumbnail?id=1WBRUwvKhNvJlQlwjDaad1nBI7jiLQV7N&sz=w1000" alt="Korean Modular House" class="portfolio-img">
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-20 items-center mb-40 reveal">
+                <div class="order-2 lg:order-1 image-placeholder h-80 p-0 border-none overflow-hidden">
+                    <img src="https://drive.google.com/thumbnail?id=119WJkPlLx7eUqV8ZTwrFXha4gWA4hoHG&sz=w1000" alt="Random Dungeon Generator" class="portfolio-img">
+                </div>
+                <div class="order-1 lg:order-2">
+                    <h3 class="text-4xl font-bold mb-6">PCG Random Dungeon Generator</h3>
+                    <p class="text-soft-green mb-8 leading-relaxed">
+                        타 프로젝트 협업을 통해 제작한 랜덤 던전 생성 툴입니다. 방의 개수를 입력하면 해당 수만큼 던전이 자동 생성됩니다.
+                    </p>
+                    <div class="space-y-4 text-sm opacity-80">
+                        <div class="flex gap-4 items-start">
+                            <span class="text-neon font-bold">1)</span>
+                            <p>겹침 방지 및 상호 연결을 위한 방/복도 PCG 모듈 제작</p>
+                        </div>
+                        <div class="flex gap-4 items-start">
+                            <span class="text-neon font-bold">2)</span>
+                            <p>Python 코드를 사용하여 방과 복도의 위치를 랜덤으로 지정</p>
+                        </div>
+                        <div class="flex gap-4 items-start">
+                            <span class="text-neon font-bold">3)</span>
+                            <p>PCG 로직을 사용하여 내부 인테리어 구성</p>
+                        </div>
+                    </div>
+                    <a href="https://drive.google.com/file/d/16OzOL3YibJvJz1yX_eXGUAfGkjVJYSMW/view?usp=sharing" target="_blank" class="video-link-btn mt-10"><i class="fa-solid fa-play"></i> 랜덤 던전 생성 영상</a>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10 reveal">
+                <div class="project-card p-10 rounded-[40px]">
+                    <h3 class="text-2xl font-bold mb-6">PCG Medieval Village</h3>
+                    <p class="text-sm opacity-70 mb-6 leading-relaxed">
+                        마을, 집, 길 생성을 위한 PCG 로직을 구축하며 최적화 이슈를 연구했습니다. 
+                        PCG 내부 기능을 활용하여 대규모 배치 시의 성능 저하 문제를 해결했습니다.
+                    </p>
+                    <div class="image-placeholder h-40 p-0 border-none overflow-hidden">
+                        <img src="https://drive.google.com/thumbnail?id=1FnNvGPeaZlq_Zf0B2CYfcDdO-oaw2j2b&sz=w1000" alt="Medieval Village" class="portfolio-img">
+                    </div>
+                    <a href="https://drive.google.com/file/d/16CnhkrLm_Zwf2N0mrsILSk7za1utq7d0/view?usp=sharing" target="_blank" class="video-link-btn text-xs py-2 px-4 mt-4"><i class="fa-solid fa-play"></i> 마을 제작 영상</a>
+
+                </div>
+                <div class="project-card p-10 rounded-[40px]">
+                    <h3 class="text-2xl font-bold mb-6">PCG OpenWorld Tool</h3>
+                    <p class="text-sm opacity-70 mb-6 leading-relaxed">
+                        Scriptable Tools와 결합한 효율적인 오픈월드 구성 파이프라인 R&D입니다. 
+                        비파괴 방식을 적용하여 인큐베이팅 프로젝트에서 빠른 레벨 제작을 지원했습니다.
+                    </p>
+                    <div class="image-placeholder h-40 p-0 border-none overflow-hidden">
+                        <img src="https://drive.google.com/thumbnail?id=1QqIe802XeiATjrlRGwoJ3mm9KWxD-LxH&sz=w1000" alt="OpenWorld Tool" class="portfolio-img">
+                    </div>
+                    <a href="https://drive.google.com/file/d/1Ln0N94YHNGmqkz9F_RF2anDJe6V-8A2O/view?usp=sharing" target="_blank" class="video-link-btn text-xs py-2 px-4 mt-4"><i class="fa-solid fa-play"></i> 오픈월드 툴 영상</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category 4: Rendering & Shading -->
+    <section id="rendering" class="py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <span class="category-badge">RENDERING & SHADING</span>
+            <div class="grid lg:grid-cols-3 gap-10 mb-32 reveal">
+                <div class="project-card p-10 rounded-3xl col-span-1 lg:col-span-3">
+                    <h3 class="text-3xl font-bold mb-8">Interactive Foliage Material</h3>
+                    <p class="text-soft-green mb-8 leading-relaxed">
+                        B&S Neo 프로젝트 협업. 버텍스 컬러가 없는 에셋에 대해 World Position과 Object Bound를 이용해 가중치를 설정하여 자연스러운 바람 효과를 구현했습니다.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div class="p-4 bg-zinc-900 rounded-xl border border-neon/10">
+                            <h5 class="text-neon font-bold text-xs mb-2">1차 Motion</h5>
+                            <p class="text-xs opacity-60">sine 연산값을 곱하여 바람 방향에 따라 풀이 구부러짐</p>
+                        </div>
+                        <div class="p-4 bg-zinc-900 rounded-xl border border-neon/10">
+                            <h5 class="text-neon font-bold text-xs mb-2">2차 Motion</h5>
+                            <p class="text-xs opacity-60">frac 노드를 통해 양쪽 방향으로 불규칙하게 흔들림</p>
+                        </div>
+                        <div class="p-4 bg-zinc-900 rounded-xl border border-neon/10">
+                            <h5 class="text-neon font-bold text-xs mb-2">Wind Wave Motion</h5>
+                            <p class="text-xs opacity-60">노이즈 텍스쳐로 바람결을 더함</p>
+                        </div>
+                    </div>
+                    <div class="image-placeholder h-64 mb-6 p-0 border-none overflow-hidden">
+                        <img src="https://drive.google.com/thumbnail?id=1mcAZ2yiCbAePzUFSeNOM5rBYo0luaTaO&sz=w1000" alt="Interactive Foliage" class="portfolio-img">
+                    </div>
+                </div>
+                
+            </div>
+            <div class="project-card p-12 rounded-[60px] mb-32 reveal">
+                    <h3 class="text-3xl font-bold mb-8">Water Shader</h3>
+                    <p class="text-soft-green mb-8 leading-relaxed">
+                        Single Layer Water 모델을 변형한 스타일라이즈 스타일의 물입니다.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div class="p-4 bg-zinc-900 rounded-xl border border-neon/10">
+                            <h5 class="text-neon font-bold text-xs mb-2">Wave</h5>
+                            <p class="text-xs opacity-60">노이즈 텍스쳐를 다른 uv 로 더해주면서 불규칙한 웨이브를 생성, reflection vector 를 통해 노말 없이 specular 로 물결이 표현되도록 설정했습니다.</p>
+                        </div>
+                        <div class="p-4 bg-zinc-900 rounded-xl border border-neon/10">
+                            <h5 class="text-neon font-bold text-xs mb-2">Caustic</h5>
+                            <p class="text-xs opacity-60">Color Scale Behind Water 를 사용, 1이 넘는 값을 렌더링하는 성질을 이용해 텍스쳐에 값을 더한 후 distortion + panning 효과로 일렁임을 표현했습니다.</p>
+                        </div>
+                        <div class="p-4 bg-zinc-900 rounded-xl border border-neon/10">
+                            <h5 class="text-neon font-bold text-xs mb-2">Foam</h5>
+                            <p class="text-xs opacity-60">디스턴스필드를 사용 못하는 환경을 이용해 RVT 를 사용하여 경계선 마스크를 받고 선을 그리는 foam 을 생성했습니다.</p>
+                        </div>
+                    </div>
+                    <div class="image-placeholder h-48 mb-6 p-0 border-none overflow-hidden">
+                        <img src="https://drive.google.com/thumbnail?id=17Ht8RvG37WGnQ_Qm5ZetqqXcj952rVRD&sz=w1000" alt="Cartoon Water Shader" class="portfolio-img">
+                    </div>
+            </div>
+            <!-- Cartoon Character Shader -->
+            <div class="project-card p-12 rounded-[60px] mb-32 reveal">
+                <h3 class="text-3xl font-bold mb-8">Character Shader R&D</h3>
+                <div class="grid md:grid-cols-3 gap-10">
+                    <div class="flex flex-col">
+                        <div class="image-placeholder mb-6 h-64 p-0 border-none overflow-hidden">
+                            <img src="https://drive.google.com/thumbnail?id=1RNQ83kw4AcIf4-bk6FTn7IEcPtG04Frl&sz=w1000" alt="Character Shadow" class="portfolio-img">
+                        </div>
+                        <h4 class="text-neon font-bold mb-4 uppercase tracking-widest text-xs">Shadow (SDF)</h4>
+                        <p class="text-sm opacity-70 leading-relaxed">
+                            SDF Shadow 맵을 사용해 캐릭터 그림자를 표현했습니다. 라이트 방향과 카메라 각도를 계산하여 특정 상황에서 의도한 그림자 형태가 나오도록 구현했습니다.
+                        </p>
+                    </div>
+                    <div class="flex flex-col">
+                        <div class="image-placeholder mb-6 h-64 p-0 border-none overflow-hidden">
+                            <img src="https://drive.google.com/thumbnail?id=1e60SMz9alEnd_0-nVb6p3GiOICARVyLj&sz=w1000" alt="Character Rimlight" class="portfolio-img">
+                        </div>
+                        <h4 class="text-neon font-bold mb-4 uppercase tracking-widest text-xs">Rimlight</h4>
+                        <p class="text-sm opacity-70 leading-relaxed">
+                            지저분한 Fresnel 대신 Lambert Lighting 기반의 Fake Lighting을 추가했습니다. Ramp Texture 매핑으로 카툰 스타일의 빛 형태를 제어합니다.
+                        </p>
+                    </div>
+                    <div class="flex flex-col">
+                        <div class="image-placeholder mb-6 h-64 p-0 border-none overflow-hidden">
+                            <img src="https://drive.google.com/thumbnail?id=15FOajbFcE9_tuIVzPHMg7z-c7p0yqT-C&sz=w1000" alt="Character Outline" class="portfolio-img">
+                        </div>
+                        <h4 class="text-neon font-bold mb-4 uppercase tracking-widest text-xs">Outline</h4>
+                        <p class="text-sm opacity-70 leading-relaxed">
+                            Custom Stencil을 활용해 특정 뎁스의 캐릭터를 선별하고 픽셀 간 차이를 테스트해 선을 그리는 포스트프로세스 방식을 도입했습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detailed Rendering Issues Resolved -->
+            <div class="reveal max-w-7xl mx-auto mb-32">
+                <div class="section-header">
+                    <h2 class="text-4xl font-bold mb-4">Rendering Issues Resolved</h2>
+                    <p class="text-soft-green opacity-50">실무에서 해결한 기술적 이슈들과 해결 내용입니다.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="p-8 bg-zinc-900/40 rounded-3xl border border-white/5">
+                        <h4 class="text-white font-bold mb-4">UE5 Painting Layer 이슈</h4>
+                        <p class="text-sm opacity-70 leading-relaxed">UE5.7 전환 시 Advanced Weight Layer 구조 변경으로 인한 가중치 연산 오류를 레이어 누적 구조 수정을 통해 해결했습니다.</p>
+                    </div>
+                    <div class="p-8 bg-zinc-900/40 rounded-3xl border border-white/5">
+                        <h4 class="text-white font-bold mb-4">캐릭터 림라이트 노이즈</h4>
+                        <p class="text-sm opacity-70 leading-relaxed">Pixel Normal 대신 Vertex Normal을 사용하도록 머티리얼을 수정하여 노말맵 영향 없이 깔끔하게 떨어지는 그림자를 구현했습니다.</p>
+                    </div>
+                    <div class="p-8 bg-zinc-900/40 rounded-3xl border border-white/5">
+                        <h4 class="text-white font-bold mb-4">Material Map Index -1 반환 이슈</h4>
+                        <p class="text-sm opacity-70 leading-relaxed">엔진 소스코드 분석을 통해 빈 인덱스 할당 규칙을 파악하고 리깅팀에 None 상태 처리 가이드를 제공했습니다.</p>
+                    </div>
+                    <div class="p-8 bg-zinc-900/40 rounded-3xl border border-white/5">
+                        <h4 class="text-white font-bold mb-4">큐브맵 UI 렌더링 왜곡</h4>
+                        <p class="text-sm opacity-70 leading-relaxed">3차원 형상을 2차원으로 치환하는 <strong>HLSL UV 계산 코드</strong>를 제작하여 UI상에 큐브맵을 올바른 형상으로 표시했습니다.</p>
+                    </div>
+                    <div class="p-8 bg-zinc-900/40 rounded-3xl border border-white/5 col-span-1 md:col-span-2">
+                        <h4 class="text-white font-bold mb-4">RVT 텍스처 스트레칭 (수직 블렌딩)</h4>
+                        <p class="text-sm opacity-70 leading-relaxed">RVT의 수직 투영 한계로 발생하는 텍스처 찢어짐 현상을 Triplanar 매핑으로 보완하고, 에셋 주변에 폴리지를 자동 스폰하는 방식으로 시각적 결함을 해결했습니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Support List -->
+            <div class="grid md:grid-cols-2 gap-10 reveal">
+                <div class="project-card p-10 rounded-3xl">
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-3 italic">
+                        <i class="fa-solid fa-layer-group text-neon"></i> Additional Support
+                    </h3>
+                    <ul class="bullet-list text-sm space-y-4">
+                        <li><strong>UI:</strong> Project M 애니메이션 시퀀스 연출(Glitch, Light 효과), Lyra UI 구조 분석 및 최적화 제안 (Common UI 검토)</li>
+                        <li><strong>FX:</strong> Outline 스케일 변동 머티리얼 제작, Cascade to Niagara 컨버팅 플러그인 이슈 분석 및 보정</li>
+                        <li><strong>Level:</strong> 배경 관련 PBR 머티리얼 제작</li>
+                        <li><strong>Anim:</strong> 카메라 보정 애님 컨트롤 노드 제작</li>
+                    </ul>
+                </div>
+                <div class="project-card p-10 rounded-3xl">
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-3 italic">
+                        <i class="fa-solid fa-book text-neon"></i> Communication Skills
+                    </h3>
+                    <ul class="bullet-list text-sm space-y-4">
+                        <li><strong>Documentation:</strong> 아티스트 툴 가이드, 머티리얼 팁 문서 등 사내 Wiki 활용 정보 공유, 해외 문서 번역</li>
+                        <li><strong>Communication:</strong> 엔진팀과 소통하여 에셋 관리 툴 스크립트를 제작, 아티스트 요구사항에 맞게 고도화</li>
+    
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category 5: AI Workflow -->
+    <section id="ai-workflow" class="py-32 px-6 bg-zinc-950">
+        <div class="max-w-7xl mx-auto">
+            <span class="category-badge">AI WORKFLOW</span>
+            
+            <div class="space-y-40">
+                <!-- Subsection 1: Google AI Studio -->
+                <div class="grid lg:grid-cols-2 gap-20 items-center reveal">
+                    <div>
+                        <h3 class="text-4xl font-bold mb-6">GOOGLE AI STUDIO + ART WORKFLOW</h3>
+                        <p class="text-soft-green mb-8 leading-relaxed">
+                            AI를 아트 제작 공정에 도입하기 위한 R&D 를 진행했습니다. 첨부 이미지의 라이팅 분위기를 분석하여 언리얼 환경에 맞춘 최적 프로퍼티를 제안하고, 
+                            <strong>Python 코드</strong>를 자동 생성하여 엔진에 즉시 반영하는 툴을 제작했습니다.
+                        </p>
+                        <div class="bg-neon/10 p-6 rounded-2xl border border-neon/30">
+                            <p class="text-xs font-bold text-neon mb-2 underline tracking-widest uppercase">AI Suggestion Example</p>
+                            <p class="text-sm opacity-80 leading-relaxed">
+                                원화 이미지를 업로드하면 해당 라이팅 정보를 학습하여 Light Intensity, Color Temperature 등의 설정값을 Python 스크립트로 도출합니다.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="image-placeholder h-64 p-0 border-none overflow-hidden">
+                        <img src="https://drive.google.com/thumbnail?id=1rXOgQ4cFQkfzWJ3YGQNgHFlWKr24dZDJ&sz=w1000" alt="AI Suggestion Result" class="portfolio-img">
+                    </div>
+                </div>
+                <div class="project-card p-12 rounded-[60px] mb-32 reveal">
+                <h3 class="text-3xl font-bold mb-8">Personal AI Project</h3>
+                <p class="text-soft-green mb-8 leading-relaxed">
+                            풋살 패션 산업 관련 프로젝트를 진행하며 개인적으로 제작했던 AI 작업물입니다.
+                        </p>
+                <div class="grid md:grid-cols-3 gap-10">
+                    <div class="flex flex-col">
+                        <div class="image-placeholder mb-6 h-100 p-0 border-none overflow-hidden">
+                            <img src="https://drive.google.com/thumbnail?id=117GR2PqNvuyllloj7orhYkm3AQmXJ0Rn&sz=w1000" alt="LOOKBOOK" class="portfolio-img">
+                        </div>
+                        <p class="text-sm opacity-70 leading-relaxed">
+                            Nano banana 를 적극적으로 활용하여 제작한 룩북 이미지
+                        </p>
+                    </div>
+                    <div class="flex flex-col">
+                        <div class="image-placeholder mb-6 h-100 p-0 border-none overflow-hidden">
+                            <img src="https://drive.google.com/thumbnail?id=1Jq-ZP1oow-gbhBsVmNwJtTXpD_-jQEUg&sz=w1000" alt="Character Rimlight" class="portfolio-img">
+                        </div>
+                        <p class="text-sm opacity-70 leading-relaxed">
+                            text to image, image to video 모델을 사용하여 제작한 브랜드 런웨이 영상
+                        </p>
+                    </div>
+                    <div class="flex flex-col">
+                        <div class="image-placeholder mb-6 h-100 p-0 border-none overflow-hidden">
+                            <img src="https://drive.google.com/thumbnail?id=1me4zJOIdE58AXvYpA38TmivrcWFXoKPn&sz=w1000" alt="Character Outline" class="portfolio-img">
+                        </div>
+                        <p class="text-sm opacity-70 leading-relaxed">
+                            인스타그램 업로드용 톤앤매너 콘텐츠 제작 AI 시스템 
+                        </p>
+                    </div>
+                </div>
+            </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="py-40 px-6 bg-black border-t border-neon/10">
+        <div class="max-w-5xl mx-auto text-center reveal">
+            <h2 class="text-6xl md:text-8xl font-bold mb-12 tracking-tighter uppercase">Thank You <span class="text-neon"></span></h2>
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-16 text-lg">
+                <div class="flex flex-col items-center">
+                    <p class="text-xs tracking-widest opacity-40 mb-2 uppercase font-bold">Technical Artist</p>
+                    <p class="font-bold uppercase tracking-widest">Baik Seung-A</p>
+                </div>
+            </div>
+            <div class="mt-40 text-[10px] tracking-[1em] opacity-20 uppercase font-bold">
+                읽어주셔서 감사합니다 :)
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll Reveal Logic
+        const revealCallback = (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        };
+
+        const revealObserver = new IntersectionObserver(revealCallback, {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        });
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // Navigation Smooth Blur
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.padding = '1rem 2rem';
+                nav.style.backgroundColor = 'rgba(10, 10, 10, 0.95)';
+            } else {
+                nav.style.padding = '1.5rem 2rem';
+                nav.style.backgroundColor = 'rgba(10, 10, 10, 0.8)';
+            }
+        });
+    </script>
+</body>
+</html>
