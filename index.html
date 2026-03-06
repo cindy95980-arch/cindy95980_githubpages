@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TA Portfolio | Baek Seung-a</title>
+    <title>TA Portfolio | Baik Seung-a</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -287,6 +287,7 @@
         <div class="max-w-7xl mx-auto">
             <span class="category-badge">PROCEDURAL GENERATION</span>
 
+            <!-- PCG Korean Modular House Generator -->
             <div class="grid lg:grid-cols-2 gap-20 items-center mb-40 reveal">
                 <div>
                     <h3 class="text-4xl font-bold mb-6 leading-tight">PCG Korean Modular House Generator</h3>
@@ -296,14 +297,50 @@
                     </p>
                     <a href="https://drive.google.com/file/d/16sdoszs1fYsK1Pyk8VXMWyZKYlUEwXho/view?usp=sharing" target="_blank" class="video-link-btn"><i class="fa-solid fa-play"></i> 절차적 양옥 생성 영상</a>
                 </div>
-                <div class="image-placeholder h-80 p-0 border-none overflow-hidden">
-                    <img src="https://drive.google.com/thumbnail?id=1WBRUwvKhNvJlQlwjDaad1nBI7jiLQV7N&sz=w1000" alt="Korean Modular House" class="portfolio-img">
+                
+                <!-- 이미지 슬라이더 (갤러리) 영역 -->
+                <div class="relative w-full overflow-hidden rounded-2xl group slider-container h-80 border border-white/5">
+                    <div class="flex h-full transition-transform duration-500 ease-out slider-track">
+                        <div class="w-full h-full flex-shrink-0 relative bg-zinc-900/50">
+                            <img src="https://drive.google.com/thumbnail?id=1WBRUwvKhNvJlQlwjDaad1nBI7jiLQV7N&sz=w1000" alt="Korean Modular House" class="portfolio-img">
+                        </div>
+                        <div class="w-full h-full flex-shrink-0 relative bg-zinc-900/50 flex justify-center items-center">
+                            <img src="https://drive.google.com/thumbnail?id=1wU52vSxFNLrkmhtk_RNyj2f2-aiJsmbi&sz=w1000" alt="Korean Modular House" class="portfolio-img">
+                        </div>
+                    </div>
+                    <!-- 슬라이더 컨트롤 버튼 -->
+                    <button class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/70 text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all hover:bg-neon hover:text-black z-10 prev-btn shadow-lg"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/70 text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all hover:bg-neon hover:text-black z-10 next-btn shadow-lg"><i class="fa-solid fa-chevron-right"></i></button>
+                    <!-- 인디케이터 (Dots) -->
+                    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                        <button class="w-4 h-2 rounded-full bg-neon transition-all dot"></button>
+                        <button class="w-2 h-2 rounded-full bg-white/50 transition-all dot"></button>
+                        <button class="w-2 h-2 rounded-full bg-white/50 transition-all dot"></button>
+                    </div>
                 </div>
             </div>
 
+            <!-- PCG Random Dungeon Generator -->
             <div class="grid lg:grid-cols-2 gap-20 items-center mb-40 reveal">
-                <div class="order-2 lg:order-1 image-placeholder h-80 p-0 border-none overflow-hidden">
-                    <img src="https://drive.google.com/thumbnail?id=119WJkPlLx7eUqV8ZTwrFXha4gWA4hoHG&sz=w1000" alt="Random Dungeon Generator" class="portfolio-img">
+                <div class="order-2 lg:order-1 relative w-full overflow-hidden rounded-2xl group slider-container h-80 border border-white/5">
+                    <div class="flex h-full transition-transform duration-500 ease-out slider-track">
+                        <div class="w-full h-full flex-shrink-0 relative bg-zinc-900/50">
+                            <img src="https://drive.google.com/thumbnail?id=119WJkPlLx7eUqV8ZTwrFXha4gWA4hoHG&sz=w1000" alt="Random Dungeon Generator" class="portfolio-img">
+                        </div>
+                        <div class="w-full h-full flex-shrink-0 relative bg-zinc-900/50 flex justify-center items-center">
+                            <img src="https://drive.google.com/thumbnail?id=13cRFuXHNEmAB3zaeFfMDagkpwvHq_QUT&sz=w1000" alt="Random Dungeon Generator" class="portfolio-img">
+                        </div>
+                        <div class="w-full h-full flex-shrink-0 relative bg-zinc-900/50 flex justify-center items-center">
+                            <img src="https://drive.google.com/thumbnail?id=1C6ttzmcqr4KZSB1kowDoAXbIOyiL4OF7&sz=w1000" alt="Random Dungeon Generator" class="portfolio-img">
+                        </div>
+                    </div>
+                    <button class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/70 text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all hover:bg-neon hover:text-black z-10 prev-btn"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/70 text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all hover:bg-neon hover:text-black z-10 next-btn"><i class="fa-solid fa-chevron-right"></i></button>
+                    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                        <button class="w-4 h-2 rounded-full bg-neon transition-all dot"></button>
+                        <button class="w-2 h-2 rounded-full bg-white/50 transition-all dot"></button>
+                        <button class="w-2 h-2 rounded-full bg-white/50 transition-all dot"></button>
+                    </div>
                 </div>
                 <div class="order-1 lg:order-2">
                     <h3 class="text-4xl font-bold mb-6">PCG Random Dungeon Generator</h3>
@@ -328,29 +365,64 @@
                 </div>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-10 reveal">
-                <div class="project-card p-10 rounded-[40px]">
-                    <h3 class="text-2xl font-bold mb-6">PCG Medieval Village</h3>
-                    <p class="text-sm opacity-70 mb-6 leading-relaxed">
+            <!-- PCG Medieval Village -->
+            <div class="grid lg:grid-cols-2 gap-20 items-center mb-40 reveal">
+                <div>
+                    <h3 class="text-4xl font-bold mb-6">PCG Medieval Village</h3>
+                    <p class="text-soft-green mb-8 leading-relaxed">
                         마을, 집, 길 생성을 위한 PCG 로직을 구축하며 최적화 이슈를 연구했습니다. 
                         PCG 내부 기능을 활용하여 대규모 배치 시의 성능 저하 문제를 해결했습니다.
                     </p>
-                    <div class="image-placeholder h-40 p-0 border-none overflow-hidden">
-                        <img src="https://drive.google.com/thumbnail?id=1FnNvGPeaZlq_Zf0B2CYfcDdO-oaw2j2b&sz=w1000" alt="Medieval Village" class="portfolio-img">
-                    </div>
-                    <a href="https://drive.google.com/file/d/16CnhkrLm_Zwf2N0mrsILSk7za1utq7d0/view?usp=sharing" target="_blank" class="video-link-btn text-xs py-2 px-4 mt-4"><i class="fa-solid fa-play"></i> 마을 제작 영상</a>
-
+                    <a href="https://drive.google.com/file/d/16CnhkrLm_Zwf2N0mrsILSk7za1utq7d0/view?usp=sharing" target="_blank" class="video-link-btn"><i class="fa-solid fa-play"></i> 마을 제작 영상</a>
                 </div>
-                <div class="project-card p-10 rounded-[40px]">
-                    <h3 class="text-2xl font-bold mb-6">PCG OpenWorld Tool</h3>
-                    <p class="text-sm opacity-70 mb-6 leading-relaxed">
+                <div class="relative w-full overflow-hidden rounded-2xl group slider-container h-80 border border-white/5">
+                    <div class="flex h-full transition-transform duration-500 ease-out slider-track">
+                        <div class="w-full h-full flex-shrink-0 relative bg-zinc-900/50">
+                            <img src="https://drive.google.com/thumbnail?id=1FnNvGPeaZlq_Zf0B2CYfcDdO-oaw2j2b&sz=w1000" alt="Medieval Village" class="portfolio-img">
+                        </div>
+                        <div class="w-full h-full flex-shrink-0 relative bg-zinc-900/50 flex justify-center items-center">
+                            <img src="https://drive.google.com/thumbnail?id=1ENimwouuIFB3z94wG-QPZEfsHZkRhigg&sz=w1000" alt="Medieval Village" class="portfolio-img">
+                        </div>
+                    </div>
+                    <button class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/70 text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all hover:bg-neon hover:text-black z-10 prev-btn"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/70 text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all hover:bg-neon hover:text-black z-10 next-btn"><i class="fa-solid fa-chevron-right"></i></button>
+                    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                        <button class="w-4 h-2 rounded-full bg-neon transition-all dot"></button>
+                        <button class="w-2 h-2 rounded-full bg-white/50 transition-all dot"></button>
+                        <button class="w-2 h-2 rounded-full bg-white/50 transition-all dot"></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PCG OpenWorld Tool -->
+            <div class="grid lg:grid-cols-2 gap-20 items-center mb-40 reveal">
+                <div class="order-2 lg:order-1 relative w-full overflow-hidden rounded-2xl group slider-container h-80 border border-white/5">
+                    <div class="flex h-full transition-transform duration-500 ease-out slider-track">
+                        <div class="w-full h-full flex-shrink-0 relative bg-zinc-900/50">
+                            <img src="https://drive.google.com/thumbnail?id=1QqIe802XeiATjrlRGwoJ3mm9KWxD-LxH&sz=w1000" alt="OpenWorld Tool" class="portfolio-img">
+                        </div>
+                        <div class="w-full h-full flex-shrink-0 relative bg-zinc-900/50 flex justify-center items-center">
+                            <img src="https://drive.google.com/thumbnail?id=1CdYUtPXZ0Ju7JFhv51B1GXqRKrvuHQVu&sz=w1000" alt="OpenWorld Tool" class="portfolio-img">
+                        </div>
+                        <div class="w-full h-full flex-shrink-0 relative bg-zinc-900/50 flex justify-center items-center">
+                            <img src="https://drive.google.com/thumbnail?id=1GqOcWfeM5PQoiF7QGFPas-m_bx5YT3Tl&sz=w1000" alt="OpenWorld Tool" class="portfolio-img">
+                        </div>
+                    </div>
+                    <button class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/70 text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all hover:bg-neon hover:text-black z-10 prev-btn"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/70 text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all hover:bg-neon hover:text-black z-10 next-btn"><i class="fa-solid fa-chevron-right"></i></button>
+                    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                        <button class="w-4 h-2 rounded-full bg-neon transition-all dot"></button>
+                        <button class="w-2 h-2 rounded-full bg-white/50 transition-all dot"></button>
+                        <button class="w-2 h-2 rounded-full bg-white/50 transition-all dot"></button>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <h3 class="text-4xl font-bold mb-6">PCG OpenWorld Tool</h3>
+                    <p class="text-soft-green mb-8 leading-relaxed">
                         Scriptable Tools와 결합한 효율적인 오픈월드 구성 파이프라인 R&D입니다. 
                         비파괴 방식을 적용하여 인큐베이팅 프로젝트에서 빠른 레벨 제작을 지원했습니다.
                     </p>
-                    <div class="image-placeholder h-40 p-0 border-none overflow-hidden">
-                        <img src="https://drive.google.com/thumbnail?id=1QqIe802XeiATjrlRGwoJ3mm9KWxD-LxH&sz=w1000" alt="OpenWorld Tool" class="portfolio-img">
-                    </div>
-                    <a href="https://drive.google.com/file/d/1Ln0N94YHNGmqkz9F_RF2anDJe6V-8A2O/view?usp=sharing" target="_blank" class="video-link-btn text-xs py-2 px-4 mt-4"><i class="fa-solid fa-play"></i> 오픈월드 툴 영상</a>
+                    <a href="https://drive.google.com/file/d/1Ln0N94YHNGmqkz9F_RF2anDJe6V-8A2O/view?usp=sharing" target="_blank" class="video-link-btn"><i class="fa-solid fa-play"></i> 오픈월드 툴 영상</a>
                 </div>
             </div>
         </div>
@@ -653,40 +725,10 @@
                         <img src="https://drive.google.com/thumbnail?id=1rXOgQ4cFQkfzWJ3YGQNgHFlWKr24dZDJ&sz=w1000" alt="AI Suggestion Result" class="portfolio-img">
                     </div>
                 </div>
-                <div class="project-card p-12 rounded-[60px] mb-32 reveal">
-                <h3 class="text-3xl font-bold mb-8">Personal AI Project</h3>
-                <p class="text-soft-green mb-8 leading-relaxed">
-                            풋살 패션 산업 관련 프로젝트를 진행하며 개인적으로 제작했던 AI 작업물입니다.
-                        </p>
-                <div class="grid md:grid-cols-3 gap-10">
-                    <div class="flex flex-col">
-                        <div class="image-placeholder mb-6 h-100 p-0 border-none overflow-hidden">
-                            <img src="https://drive.google.com/thumbnail?id=117GR2PqNvuyllloj7orhYkm3AQmXJ0Rn&sz=w1000" alt="LOOKBOOK" class="portfolio-img">
-                        </div>
-                        <p class="text-sm opacity-70 leading-relaxed">
-                            Nano banana 를 적극적으로 활용하여 제작한 룩북 이미지
-                        </p>
-                    </div>
-                    <div class="flex flex-col">
-                        <div class="image-placeholder mb-6 h-100 p-0 border-none overflow-hidden">
-                            <img src="https://drive.google.com/thumbnail?id=1Jq-ZP1oow-gbhBsVmNwJtTXpD_-jQEUg&sz=w1000" alt="Character Rimlight" class="portfolio-img">
-                        </div>
-                        <p class="text-sm opacity-70 leading-relaxed">
-                            text to image, image to video 모델을 사용하여 제작한 브랜드 런웨이 영상
-                        </p>
-                    </div>
-                    <div class="flex flex-col">
-                        <div class="image-placeholder mb-6 h-100 p-0 border-none overflow-hidden">
-                            <img src="https://drive.google.com/thumbnail?id=1me4zJOIdE58AXvYpA38TmivrcWFXoKPn&sz=w1000" alt="Character Outline" class="portfolio-img">
-                        </div>
-                        <p class="text-sm opacity-70 leading-relaxed">
-                            인스타그램 업로드용 톤앤매너 콘텐츠 제작 AI 시스템 
-                        </p>
-                    </div>
-                </div>
-            </div>
                 
             </div>
+                
+            
         </div>
     </section>
 
@@ -701,14 +743,14 @@
                 </div>
             </div>
             <div class="mt-40 text-[10px] tracking-[1em] opacity-20 uppercase font-bold">
-                읽어주셔서 감사합니다 :)
-            </div>
+            읽어주셔서 감사합니다 :)
         </div>
-    </footer>
+    </div>
+</footer>
 
-    <script>
-        // Scroll Reveal Logic
-        const revealCallback = (entries) => {
+<script>
+    // Scroll Reveal Logic
+    const revealCallback = (entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
@@ -727,15 +769,59 @@
 
         // Navigation Smooth Blur
         window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.style.padding = '1rem 2rem';
-                nav.style.backgroundColor = 'rgba(10, 10, 10, 0.95)';
-            } else {
-                nav.style.padding = '1.5rem 2rem';
-                nav.style.backgroundColor = 'rgba(10, 10, 10, 0.8)';
-            }
+        const nav = document.querySelector('nav');
+        if (window.scrollY > 50) {
+            nav.style.padding = '1rem 2rem';
+            nav.style.backgroundColor = 'rgba(10, 10, 10, 0.95)';
+        } else {
+            nav.style.padding = '1.5rem 2rem';
+            nav.style.backgroundColor = 'rgba(10, 10, 10, 0.8)';
+        }
+    });
+
+    // Image Slider Logic (갤러리 스크립트 추가)
+    document.querySelectorAll('.slider-container').forEach(container => {
+        const track = container.querySelector('.slider-track');
+        const slides = container.querySelectorAll('.slider-track > div');
+        const prevBtn = container.querySelector('.prev-btn');
+        const nextBtn = container.querySelector('.next-btn');
+        const dots = container.querySelectorAll('.dot');
+        let currentIndex = 0;
+
+        function updateSlider() {
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            dots.forEach((dot, index) => {
+                if (index === currentIndex) {
+                    dot.classList.remove('bg-white/50', 'w-2');
+                    dot.classList.add('bg-neon', 'w-4');
+                } else {
+                    dot.classList.remove('bg-neon', 'w-4');
+                    dot.classList.add('bg-white/50', 'w-2');
+                }
+            });
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % slides.length;
+                updateSlider();
+            });
+        }
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                updateSlider();
+            });
+        }
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentIndex = index;
+                updateSlider();
+            });
         });
-    </script>
+    });
+</script>
 </body>
 </html>
