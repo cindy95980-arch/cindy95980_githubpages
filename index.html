@@ -187,6 +187,8 @@
                             <p class="text-white font-bold text-lg">NCSOFT</p>
                             <p class="text-soft-green text-sm opacity-80">Technical Art실 (2022.07 - 2024.12)</p>
                             <p class="text-soft-green text-xs opacity-50">비주얼기획실 비주얼분석팀 (2022.01 - 2022.06)</p>
+                            <p class="text-white font-bold text-lg">MADNGINE</p>
+                            <p class="text-soft-green text-sm opacity-80">매드스튜디오 TA팀 (2025.10 -)</p>
                         </div>
                     </div>
                     <div>
@@ -257,14 +259,14 @@
         </div>
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div class="project-card p-10 rounded-3xl reveal">
-                <div class="text-neon text-4xl mb-6"><i class="fa-solid fa-code"></i></div>
-                <h3 class="text-xl font-bold mb-4">Tool Scripting</h3>
-                <p class="text-sm text-soft-green opacity-60 leading-relaxed">Python, BP를 활용한 자동화 및 아트 워크플로우 효율화</p>
-            </div>
-            <div class="project-card p-10 rounded-3xl reveal" style="transition-delay: 0.1s;">
                 <div class="text-neon text-4xl mb-6"><i class="fa-solid fa-microchip"></i></div>
                 <h3 class="text-xl font-bold mb-4">Procedural Gen</h3>
                 <p class="text-sm text-soft-green opacity-60 leading-relaxed"> 절차적 콘텐츠 생성 R&D 및 대규모 월드 제작 지원</p>
+            </div>
+            <div class="project-card p-10 rounded-3xl reveal" style="transition-delay: 0.1s;">
+                <div class="text-neon text-4xl mb-6"><i class="fa-solid fa-code"></i></div>
+                <h3 class="text-xl font-bold mb-4">Tool Scripting</h3>
+                <p class="text-sm text-soft-green opacity-60 leading-relaxed">Python, BP를 활용한 자동화 및 아트 워크플로우 효율화</p>
             </div>
             <div class="project-card p-10 rounded-3xl reveal" style="transition-delay: 0.2s;">
                 <div class="text-neon text-4xl mb-6"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
@@ -275,6 +277,81 @@
                 <div class="text-neon text-4xl mb-6"><i class="fa-solid fa-brain"></i></div>
                 <h3 class="text-xl font-bold mb-4">AI Workflow</h3>
                 <p class="text-sm text-soft-green opacity-60 leading-relaxed"> 생성형 AI를 활용한 아트 워크플로우 도입 및 개인 연구</p>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- Category 2: Procedural Generation -->
+    <section id="procedural" class="py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <span class="category-badge">PROCEDURAL GENERATION</span>
+
+            <div class="grid lg:grid-cols-2 gap-20 items-center mb-40 reveal">
+                <div>
+                    <h3 class="text-4xl font-bold mb-6 leading-tight">PCG Korean Modular House Generator</h3>
+                    <p class="text-soft-green mb-8">
+                        Scan Studio와의 협업으로 스캔한 한국형 양옥 에셋을 분석하고, UE5 PCG와 Detail Panel을 활용하여 
+                        절차적으로 집을 구성하는 로직입니다. 집 크기, 층수, 에셋 밀도 등을 유저가 직접 조정할 수 있습니다.
+                    </p>
+                    <a href="https://drive.google.com/file/d/16sdoszs1fYsK1Pyk8VXMWyZKYlUEwXho/view?usp=sharing" target="_blank" class="video-link-btn"><i class="fa-solid fa-play"></i> 절차적 양옥 생성 영상</a>
+                </div>
+                <div class="image-placeholder h-80 p-0 border-none overflow-hidden">
+                    <img src="https://drive.google.com/thumbnail?id=1WBRUwvKhNvJlQlwjDaad1nBI7jiLQV7N&sz=w1000" alt="Korean Modular House" class="portfolio-img">
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-20 items-center mb-40 reveal">
+                <div class="order-2 lg:order-1 image-placeholder h-80 p-0 border-none overflow-hidden">
+                    <img src="https://drive.google.com/thumbnail?id=119WJkPlLx7eUqV8ZTwrFXha4gWA4hoHG&sz=w1000" alt="Random Dungeon Generator" class="portfolio-img">
+                </div>
+                <div class="order-1 lg:order-2">
+                    <h3 class="text-4xl font-bold mb-6">PCG Random Dungeon Generator</h3>
+                    <p class="text-soft-green mb-8 leading-relaxed">
+                        타 프로젝트 협업을 통해 제작한 랜덤 던전 생성 툴입니다. 방의 개수를 입력하면 해당 수만큼 던전이 자동 생성됩니다.
+                    </p>
+                    <div class="space-y-4 text-sm opacity-80">
+                        <div class="flex gap-4 items-start">
+                            <span class="text-neon font-bold">1)</span>
+                            <p>겹침 방지 및 상호 연결을 위한 방/복도 PCG 모듈 제작</p>
+                        </div>
+                        <div class="flex gap-4 items-start">
+                            <span class="text-neon font-bold">2)</span>
+                            <p>Python 코드를 사용하여 방과 복도의 위치를 랜덤으로 지정</p>
+                        </div>
+                        <div class="flex gap-4 items-start">
+                            <span class="text-neon font-bold">3)</span>
+                            <p>PCG 로직을 사용하여 내부 인테리어 구성</p>
+                        </div>
+                    </div>
+                    <a href="https://drive.google.com/file/d/16OzOL3YibJvJz1yX_eXGUAfGkjVJYSMW/view?usp=sharing" target="_blank" class="video-link-btn mt-10"><i class="fa-solid fa-play"></i> 랜덤 던전 생성 영상</a>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-10 reveal">
+                <div class="project-card p-10 rounded-[40px]">
+                    <h3 class="text-2xl font-bold mb-6">PCG Medieval Village</h3>
+                    <p class="text-sm opacity-70 mb-6 leading-relaxed">
+                        마을, 집, 길 생성을 위한 PCG 로직을 구축하며 최적화 이슈를 연구했습니다. 
+                        PCG 내부 기능을 활용하여 대규모 배치 시의 성능 저하 문제를 해결했습니다.
+                    </p>
+                    <div class="image-placeholder h-40 p-0 border-none overflow-hidden">
+                        <img src="https://drive.google.com/thumbnail?id=1FnNvGPeaZlq_Zf0B2CYfcDdO-oaw2j2b&sz=w1000" alt="Medieval Village" class="portfolio-img">
+                    </div>
+                    <a href="https://drive.google.com/file/d/16CnhkrLm_Zwf2N0mrsILSk7za1utq7d0/view?usp=sharing" target="_blank" class="video-link-btn text-xs py-2 px-4 mt-4"><i class="fa-solid fa-play"></i> 마을 제작 영상</a>
+
+                </div>
+                <div class="project-card p-10 rounded-[40px]">
+                    <h3 class="text-2xl font-bold mb-6">PCG OpenWorld Tool</h3>
+                    <p class="text-sm opacity-70 mb-6 leading-relaxed">
+                        Scriptable Tools와 결합한 효율적인 오픈월드 구성 파이프라인 R&D입니다. 
+                        비파괴 방식을 적용하여 인큐베이팅 프로젝트에서 빠른 레벨 제작을 지원했습니다.
+                    </p>
+                    <div class="image-placeholder h-40 p-0 border-none overflow-hidden">
+                        <img src="https://drive.google.com/thumbnail?id=1QqIe802XeiATjrlRGwoJ3mm9KWxD-LxH&sz=w1000" alt="OpenWorld Tool" class="portfolio-img">
+                    </div>
+                    <a href="https://drive.google.com/file/d/1Ln0N94YHNGmqkz9F_RF2anDJe6V-8A2O/view?usp=sharing" target="_blank" class="video-link-btn text-xs py-2 px-4 mt-4"><i class="fa-solid fa-play"></i> 오픈월드 툴 영상</a>
+                </div>
             </div>
         </div>
     </section>
@@ -406,79 +483,6 @@
         </div>
     </section>
 
-    <!-- Category 2: Procedural Generation -->
-    <section id="procedural" class="py-32 px-6">
-        <div class="max-w-7xl mx-auto">
-            <span class="category-badge">PROCEDURAL GENERATION</span>
-
-            <div class="grid lg:grid-cols-2 gap-20 items-center mb-40 reveal">
-                <div>
-                    <h3 class="text-4xl font-bold mb-6 leading-tight">PCG Korean Modular House Generator</h3>
-                    <p class="text-soft-green mb-8">
-                        Scan Studio와의 협업으로 스캔한 한국형 양옥 에셋을 분석하고, UE5 PCG와 Detail Panel을 활용하여 
-                        절차적으로 집을 구성하는 로직입니다. 집 크기, 층수, 에셋 밀도 등을 유저가 직접 조정할 수 있습니다.
-                    </p>
-                    <a href="https://drive.google.com/file/d/16sdoszs1fYsK1Pyk8VXMWyZKYlUEwXho/view?usp=sharing" target="_blank" class="video-link-btn"><i class="fa-solid fa-play"></i> 절차적 양옥 생성 영상</a>
-                </div>
-                <div class="image-placeholder h-80 p-0 border-none overflow-hidden">
-                    <img src="https://drive.google.com/thumbnail?id=1WBRUwvKhNvJlQlwjDaad1nBI7jiLQV7N&sz=w1000" alt="Korean Modular House" class="portfolio-img">
-                </div>
-            </div>
-
-            <div class="grid lg:grid-cols-2 gap-20 items-center mb-40 reveal">
-                <div class="order-2 lg:order-1 image-placeholder h-80 p-0 border-none overflow-hidden">
-                    <img src="https://drive.google.com/thumbnail?id=119WJkPlLx7eUqV8ZTwrFXha4gWA4hoHG&sz=w1000" alt="Random Dungeon Generator" class="portfolio-img">
-                </div>
-                <div class="order-1 lg:order-2">
-                    <h3 class="text-4xl font-bold mb-6">PCG Random Dungeon Generator</h3>
-                    <p class="text-soft-green mb-8 leading-relaxed">
-                        타 프로젝트 협업을 통해 제작한 랜덤 던전 생성 툴입니다. 방의 개수를 입력하면 해당 수만큼 던전이 자동 생성됩니다.
-                    </p>
-                    <div class="space-y-4 text-sm opacity-80">
-                        <div class="flex gap-4 items-start">
-                            <span class="text-neon font-bold">1)</span>
-                            <p>겹침 방지 및 상호 연결을 위한 방/복도 PCG 모듈 제작</p>
-                        </div>
-                        <div class="flex gap-4 items-start">
-                            <span class="text-neon font-bold">2)</span>
-                            <p>Python 코드를 사용하여 방과 복도의 위치를 랜덤으로 지정</p>
-                        </div>
-                        <div class="flex gap-4 items-start">
-                            <span class="text-neon font-bold">3)</span>
-                            <p>PCG 로직을 사용하여 내부 인테리어 구성</p>
-                        </div>
-                    </div>
-                    <a href="https://drive.google.com/file/d/16OzOL3YibJvJz1yX_eXGUAfGkjVJYSMW/view?usp=sharing" target="_blank" class="video-link-btn mt-10"><i class="fa-solid fa-play"></i> 랜덤 던전 생성 영상</a>
-                </div>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-10 reveal">
-                <div class="project-card p-10 rounded-[40px]">
-                    <h3 class="text-2xl font-bold mb-6">PCG Medieval Village</h3>
-                    <p class="text-sm opacity-70 mb-6 leading-relaxed">
-                        마을, 집, 길 생성을 위한 PCG 로직을 구축하며 최적화 이슈를 연구했습니다. 
-                        PCG 내부 기능을 활용하여 대규모 배치 시의 성능 저하 문제를 해결했습니다.
-                    </p>
-                    <div class="image-placeholder h-40 p-0 border-none overflow-hidden">
-                        <img src="https://drive.google.com/thumbnail?id=1FnNvGPeaZlq_Zf0B2CYfcDdO-oaw2j2b&sz=w1000" alt="Medieval Village" class="portfolio-img">
-                    </div>
-                    <a href="https://drive.google.com/file/d/16CnhkrLm_Zwf2N0mrsILSk7za1utq7d0/view?usp=sharing" target="_blank" class="video-link-btn text-xs py-2 px-4 mt-4"><i class="fa-solid fa-play"></i> 마을 제작 영상</a>
-
-                </div>
-                <div class="project-card p-10 rounded-[40px]">
-                    <h3 class="text-2xl font-bold mb-6">PCG OpenWorld Tool</h3>
-                    <p class="text-sm opacity-70 mb-6 leading-relaxed">
-                        Scriptable Tools와 결합한 효율적인 오픈월드 구성 파이프라인 R&D입니다. 
-                        비파괴 방식을 적용하여 인큐베이팅 프로젝트에서 빠른 레벨 제작을 지원했습니다.
-                    </p>
-                    <div class="image-placeholder h-40 p-0 border-none overflow-hidden">
-                        <img src="https://drive.google.com/thumbnail?id=1QqIe802XeiATjrlRGwoJ3mm9KWxD-LxH&sz=w1000" alt="OpenWorld Tool" class="portfolio-img">
-                    </div>
-                    <a href="https://drive.google.com/file/d/1Ln0N94YHNGmqkz9F_RF2anDJe6V-8A2O/view?usp=sharing" target="_blank" class="video-link-btn text-xs py-2 px-4 mt-4"><i class="fa-solid fa-play"></i> 오픈월드 툴 영상</a>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Category 4: Rendering & Shading -->
     <section id="rendering" class="py-32 px-6">
